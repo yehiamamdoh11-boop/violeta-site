@@ -233,7 +233,14 @@
     .cart-item-info { flex: 1; }
     .cart-item-info h4 { font-size: 15px; margin-bottom: 4px; }
     .cart-item-info .item-price { color: var(--violet-dark); font-weight: 700; font-size: 14px; }
-    .remove-item { background: none; border: none; color: #ef4444; font-size: 13px; cursor: pointer; text-decoration: underline; margin-top: 4px; }
+    
+    /* Quantity Controls */
+    .qty-controls { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .qty-btn { width: 24px; height: 24px; border-radius: 4px; border: 1px solid var(--border); background: #fff; color: var(--text); font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .qty-btn:hover { background: var(--violet-soft); border-color: var(--violet); color: var(--violet); }
+    .qty-display { font-size: 14px; font-weight: 600; min-width: 20px; text-align: center; }
+    
+    .remove-item { background: none; border: none; color: #ef4444; font-size: 13px; cursor: pointer; text-decoration: underline; margin-top: 4px; padding: 0; }
     .cart-footer { padding: 24px; border-top: 1px solid var(--border); background: var(--violet-soft); }
     .cart-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 18px; margin-bottom: 16px; }
     .btn-checkout { width: 100%; background: #25D366; color: #fff; font-family: inherit; font-weight: 600; font-size: 16px; padding: 15px; border: none; border-radius: 100px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s; }
@@ -560,7 +567,12 @@
               <img src="${item.image}" alt="${item.name}">
               <div class="cart-item-info">
                 <h4>${item.name}</h4>
-                <div class="item-price">$${item.price} x ${item.quantity}</div>
+                <div class="item-price">$${item.price} each</div>
+                <div class="qty-controls">
+                  <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+                  <span class="qty-display">${item.quantity}</span>
+                  <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                </div>
                 <button class="remove-item" onclick="removeFromCart(${index})">Remove</button>
               </div>
             </div>
@@ -583,6 +595,14 @@
       updateCartUI();
       document.getElementById('cart-drawer').classList.add('open');
       document.getElementById('overlay').classList.add('open');
+    }
+
+    function changeQty(index, change) {
+      cart[index].quantity += change;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
     }
 
     function removeFromCart(index) {
