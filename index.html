@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Violeta for Decor — Handcrafted Candles</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Snipcart Shopping Cart CSS -->
+  <link rel="preconnect" href="https://app.snipcart.com">
+  <link rel="preconnect" href="https://cdn.snipcart.com">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
+  <style>
+    :root {
+      --violet: #7c3aed;
+      --violet-dark: #5b21b6;
+      --violet-light: #ede9fe;
+      --violet-soft: #f5f3ff;
+      --lavender: #c4b5fd;
+      --text: #1e1b2e;
+      --muted: #6b6478;
+      --bg: #ffffff;
+      --border: #e9e4f5;
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); cursor: pointer; }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--violet), var(--lavender));
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .logo-mark svg { width: 20px; height: 20px; fill: currentColor; }
+    .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; line-height: 1.1; }
+    .logo-text small { display: block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); margin-top: 2px; }
+    nav { display: flex; align-items: center; gap: 30px; }
+    .nav-link { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; transition: color 0.2s; cursor: pointer; background: none; border: none; font-family: inherit; }
+    .nav-link:hover { color: var(--violet); }
+    .nav-link.active { color: var(--violet); font-weight: 600; }
+    .nav-cta { background: var(--violet); color: #fff !important; padding: 10px 22px; border-radius: 100px; font-weight: 600; transition: background 0.2s, transform 0.1s; border: none; cursor: pointer; font-family: inherit; font-size: 15px; }
+    .nav-cta:hover { background: var(--violet-dark); }
+    .nav-cta:active { transform: translateY(1px); }
+    .page-section { display: none; animation: fadeIn 0.4s ease; }
+    .page-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .hero { padding: 96px 0 80px; background: radial-gradient(circle at 85% 20%, rgba(196, 181, 253, 0.35), transparent 45%), radial-gradient(circle at 10% 80%, rgba(237, 233, 254, 0.7), transparent 50%), var(--bg); }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--violet-soft); border: 1px solid var(--border); color: var(--violet-dark); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 100px; margin-bottom: 24px; }
+    .hero-badge span { width: 7px; height: 7px; background: var(--violet); border-radius: 50%; }
+    .hero h1 { font-size: clamp(38px, 5.5vw, 60px); line-height: 1.08; margin-bottom: 22px; }
+    .hero h1 em { font-style: normal; color: var(--violet); }
+    .hero p { font-size: 17.5px; color: var(--muted); max-width: 480px; margin-bottom: 34px; }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--violet); color: #fff; font-weight: 600; font-size: 15.5px; padding: 15px 30px; border-radius: 100px; text-decoration: none; transition: background 0.2s, transform 0.1s, box-shadow 0.2s; box-shadow: 0 6px 18px rgba(124, 58, 237, 0.25); cursor: pointer; border: none; font-family: inherit; }
+    .btn-primary:hover { background: var(--violet-dark); box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 600; font-size: 15.5px; padding: 15px 20px; text-decoration: none; border-radius: 100px; transition: color 0.2s, background 0.2s; cursor: pointer; border: none; font-family: inherit; background: transparent; }
+    .btn-ghost:hover { color: var(--violet); background: var(--violet-soft); }
+    .hero-visual { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: 0 24px 48px -16px rgba(91, 33, 182, 0.25); aspect-ratio: 4 / 5; }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .trust-strip { padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #fff; }
+    .trust-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; font-weight: 500; }
+    .trust-item svg { width: 18px; height: 18px; stroke: var(--violet); stroke-width: 2; fill: none; flex-shrink: 0; }
+    section { padding: 88px 0; }
+    .section-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
+    .section-label { display: inline-block; color: var(--violet); font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px; }
+    .section-head h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.15; margin-bottom: 14px; }
+    .section-head p { color: var(--muted); font-size: 16.5px; }
+    .serve { background: #fff; }
+    .serve-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .serve-card { background: var(--violet-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 24px; text-align: center; transition: transform 0.2s, border-color 0.2s; }
+    .serve-card:hover { transform: translateY(-4px); border-color: var(--lavender); }
+    .serve-icon { width: 48px; height: 48px; margin: 0 auto 16px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--violet); box-shadow: 0 4px 10px rgba(124, 58, 237, 0.12); }
+    .serve-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.8; fill: none; }
+    .serve-card h3 { font-size: 17px; margin-bottom: 6px; }
+    .serve-card p { color: var(--muted); font-size: 13.5px; }
+    .products { background: var(--violet-soft); padding-top: 64px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .product-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -16px rgba(91, 33, 182, 0.22); }
+    .product-thumb { aspect-ratio: 1 / 1; width: 100%; overflow: hidden; background: var(--violet-soft); }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .product-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+    .product-tag { display: inline-block; align-self: flex-start; background: var(--violet-soft); color: var(--violet-dark); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; margin-bottom: 12px; }
+    .product-card h3 { font-size: 20px; margin-bottom: 6px; }
+    .product-desc { color: var(--muted); font-size: 14.5px; flex: 1; margin-bottom: 18px; }
+    .product-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .price { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--violet-dark); }
+    .price small { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--muted); display: block; letter-spacing: 0.02em; }
+    .btn-order { display: inline-flex; align-items: center; gap: 6px; background: var(--violet); color: #fff; font-weight: 600; font-size: 13.5px; padding: 10px 18px; border-radius: 100px; text-decoration: none; transition: background 0.2s, transform 0.1s; white-space: nowrap; border: none; cursor: pointer; font-family: inherit; }
+    .btn-order:hover { background: var(--violet-dark); }
+    .btn-order:active { transform: translateY(1px); }
+    .btn-order svg { width: 15px; height: 15px; fill: currentColor; }
+    .custom-banner { background: linear-gradient(135deg, var(--violet-dark), var(--violet) 60%, #a78bfa); border-radius: 24px; padding: 56px 48px; color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; margin-top: 40px; }
+    .custom-banner::after { content: ''; position: absolute; top: -60px; right: -40px; width: 220px; height: 220px; background: rgba(255, 255, 255, 0.08); border-radius: 50%; }
+    .custom-banner h2 { font-size: clamp(26px, 3.5vw, 34px); margin-bottom: 8px; color: #fff; }
+    .custom-banner p { color: rgba(255, 255, 255, 0.85); font-size: 16px; max-width: 480px; }
+    .custom-banner .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--violet-dark); font-weight: 600; font-size: 15px; padding: 15px 30px; border-radius: 100px; text-decoration: none; transition: transform 0.15s, box-shadow 0.2s; white-space: nowrap; position: relative; z-index: 1; border: none; cursor: pointer; }
+    .custom-banner .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2); }
+    .contact { background: var(--violet-soft); min-height: 80vh; }
+    .contact-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 56px; align-items: start; }
+    .contact-info h2 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 16px; }
+    .contact-info > p { color: var(--muted); font-size: 16px; margin-bottom: 32px; max-width: 420px; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+    .contact-detail .ci { width: 42px; height: 42px; background: #fff; border-radius: 11px; display: flex; align-items: center; justify-content: center; color: var(--violet); flex-shrink: 0; box-shadow: 0 4px 10px rgba(124, 58, 237, 0.1); }
+    .contact-detail .ci svg { width: 19px; height: 19px; stroke: currentColor; stroke-width: 1.8; fill: none; }
+    .contact-detail .ct-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet-dark); margin-bottom: 2px; }
+    .contact-detail a, .contact-detail p { color: var(--text); font-size: 15.5px; font-weight: 500; text-decoration: none; }
+    .contact-detail a:hover { color: var(--violet); }
+    .quote-form { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; box-shadow: 0 18px 40px -20px rgba(91, 33, 182, 0.18); }
+    .quote-form h3 { font-size: 22px; margin-bottom: 6px; }
+    .quote-form > p { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .field input, .field select, .field textarea { width: 100%; font-family: inherit; font-size: 14.5px; color: var(--text); background: var(--violet-soft); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; background: #fff; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12); }
+    .field textarea { resize: vertical; min-height: 100px; }
+    .btn-submit { width: 100%; background: var(--violet); color: #fff; font-family: inherit; font-weight: 600; font-size: 15.5px; padding: 15px; border: none; border-radius: 100px; cursor: pointer; transition: background 0.2s, transform 0.1s; margin-top: 6px; }
+    .btn-submit:hover { background: var(--violet-dark); }
+    .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 14px; }
+    .form-note a { color: var(--violet); font-weight: 600; text-decoration: underline; }
+    footer { padding: 48px 0 32px; border-top: 1px solid var(--border); background: #fff; }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 36px; }
+    .footer-brand p { color: var(--muted); font-size: 14px; max-width: 280px; margin-top: 12px; }
+    .footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+    .footer-col h4 { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); margin-bottom: 14px; }
+    .footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 14px; margin-bottom: 8px; cursor: pointer; }
+    .footer-col a:hover { color: var(--violet); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--border); }
+    .footer-bottom p { color: var(--muted); font-size: 13px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: var(--violet-soft); color: var(--violet-dark); display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+    .footer-social a:hover { background: var(--violet); color: #fff; }
+    .footer-social svg { width: 17px; height: 17px; fill: currentColor; }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { max-width: 400px; margin: 0 auto; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .serve-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 680px) {
+      nav { gap: 15px; }
+      .nav-link { font-size: 14px; }
+      section { padding: 64px 0; }
+      .product-grid { grid-template-columns: 1fr; }
+      .serve-grid { grid-template-columns: 1fr; }
+      .custom-banner { padding: 40px 28px; text-align: center; justify-content: center; }
+      .custom-banner p { margin-left: auto; margin-right: auto; }
+      .form-row { grid-template-columns: 1fr; }
+      .quote-form { padding: 28px 22px; }
+      .footer-cols { gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="logo" onclick="showPage('home')">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2c1.5 3.5 4 5.5 4 9a4 4 0 1 1-8 0c0-3.5 2.5-5.5 4-9z"/><rect x="9" y="16" width="6" height="6" rx="1.5"/></svg>
+        </span>
+        <span class="logo-text">
+          Violeta
+          <small>For Decor</small>
+        </span>
+      </a>
+      <nav>
+        <button class="nav-link" id="nav-home" onclick="showPage('home')">Home</button>
+        <button class="nav-link" id="nav-shop" onclick="showPage('shop')">Shop</button>
+        <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+        <button class="nav-cta snipcart-checkout">
+          Cart (<span class="snipcart-items-count">0</span>)
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main id="page-home" class="page-section active">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="hero-badge"><span></span> Handcrafted in small batches</span>
+          <h1>Candles that turn spaces into <em>moments</em></h1>
+          <p>Artisan candles for homes, offices, restaurants, and events. Custom scents, elegant designs, and wholesale orders — made with care.</p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="showPage('shop')">
+              Shop Candles
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button class="btn-ghost" onclick="showPage('contact')">Request a Quote</button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="https://i.postimg.cc/Y2nV4ncG/image-321.jpg" alt="OUD handcrafted candle by Violeta for Decor">
+        </div>
+      </div>
+    </section>
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 100% natural soy wax</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Hand-poured in small batches</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Custom scents &amp; branding</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Wholesale pricing available</div>
+      </div>
+    </div>
+    <section class="serve">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Who We Serve</span>
+          <h2>Candles for every space</h2>
+          <p>From intimate homes to busy restaurants and large events, we help create the right atmosphere.</p>
+        </div>
+        <div class="serve-grid">
+          <div class="serve-card">
+            <div class="serve-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+            <h3>Homes</h3><p>Cosy scents that make your home feel warm and welcoming.</p>
+          </div>
+          <div class="serve-card">
+            <div class="serve-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+            <h3>Offices</h3><p>Fresh, professional fragrances for reception areas and workspaces.</p>
+          </div>
+          <div class="serve-card">
+            <div class="serve-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7a4 4 0 0 0 4 4h0a4 4 0 0 0 4-4V2"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M17 2a4 4 0 0 1 0 8"/></svg></div>
+            <h3>Restaurants</h3><p>Ambient scents that complement your dining experience.</p>
+          </div>
+          <div class="serve-card">
+            <div class="serve-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14l-6-4.5h7.5z"/></svg></div>
+            <h3>Events</h3><p>Elegant candles for weddings, celebrations and corporate events.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <main id="page-shop" class="page-section">
+    <section class="products">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Our Collection</span>
+          <h2>Signature candles</h2>
+          <p>Each candle is hand-poured with premium soy wax and phthalate-free fragrance oils. Choose a favourite or ask us to create something custom.</p>
+        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-thumb">
+              <img src="https://i.postimg.cc/Y2nV4ncG/image-321.jpg" alt="Oud candle by Violeta for Decor">
+            </div>
+            <div class="product-body">
+              <span class="product-tag">Bestseller</span>
+              <h3>OUD</h3>
+              <p class="product-desc">Rich, woody, and warm. A luxurious scent that brings depth and elegance to any room.</p>
+              <div class="product-foot">
+                <div class="price">$32<small>200g · 40h burn</small></div>
+                <button class="btn-order snipcart-add-item"
+                  data-item-id="oud-candle"
+                  data-item-price="32.00"
+                  data-item-url="/"
+                  data-item-description="Rich, woody, and warm handmade soy candle."
+                  data-item-image="https://i.postimg.cc/Y2nV4ncG/image-321.jpg"
+                  data-item-name="OUD Candle">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-thumb">
+              <img src="https://i.postimg.cc/YSRR50M7/image-317.jpg" alt="Lavender candle by Violeta for Decor">
+            </div>
+            <div class="product-body">
+              <span class="product-tag">Bestseller</span>
+              <h3>LAVENDER</h3>
+              <p class="product-desc">Calming lavender with a hint of vanilla. Perfect for bedrooms and relaxation spaces.</p>
+              <div class="product-foot">
+                <div class="price">$28<small>200g · 40h burn</small></div>
+                <button class="btn-order snipcart-add-item"
+                  data-item-id="lavender-candle"
+                  data-item-price="28.00"
+                  data-item-url="/"
+                  data-item-description="Calming lavender handmade soy candle."
+                  data-item-image="https://i.postimg.cc/YSRR50M7/image-317.jpg"
+                  data-item-name="LAVENDER Candle">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-thumb">
+              <img src="https://i.postimg.cc/mgQ8SVnk/image-278.jpg" alt="Jasmine candle by Violeta for Decor">
+            </div>
+            <div class="product-body">
+              <span class="product-tag">New</span>
+              <h3>JASMINE</h3>
+              <p class="product-desc">Floral and delicate. Beautiful for weddings, gifts, and special occasions.</p>
+              <div class="product-foot">
+                <div class="price">$30<small>200g · 40h burn</small></div>
+                <button class="btn-order snipcart-add-item"
+                  data-item-id="jasmine-candle"
+                  data-item-price="30.00"
+                  data-item-url="/"
+                  data-item-description="Floral and delicate handmade soy candle."
+                  data-item-image="https://i.postimg.cc/mgQ8SVnk/image-278.jpg"
+                  data-item-name="JASMINE Candle">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="custom-banner">
+          <div>
+            <h2>Planning a big order?</h2>
+            <p>We offer wholesale pricing, custom scents, and branded candles for businesses and events. Tell us what you need and we'll send you a quote.</p>
+          </div>
+          <button class="btn-white" onclick="showPage('contact')">Request a Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <main id="page-contact" class="page-section">
+    <section class="contact">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <span class="section-label">Get in Touch</span>
+          <h2>Let's talk candles</h2>
+          <p>Whether you'd like to place an order or request a quote for a larger project, we'd love to hear from you.</p>
+          <div class="contact-detail">
+            <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div><div class="ct-label">Email</div><a href="mailto:your-email@gmail.com">your-email@gmail.com</a></div>
+          </div>
+          <div class="contact-detail">
+            <div class="ci"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div>
+            <div><div class="ct-label">Instagram</div><a href="https://www.instagram.com/violeta_for_decor/">@violeta_for_decor</a></div>
+          </div>
+          <div class="contact-detail">
+            <div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div><div class="ct-label">Location</div><p>Available online &amp; for local delivery</p></div>
+          </div>
+        </div>
+        <form class="quote-form" id="quoteForm" novalidate>
+          <h3>Request a quote</h3>
+          <p>Fill in the details below and we'll get back to you.</p>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="type">I'm interested in</label>
+              <select id="type" name="type">
+                <option value="home">Home candles</option>
+                <option value="office">Office candles</option>
+                <option value="restaurant">Restaurant candles</option>
+                <option value="event">Event candles</option>
+                <option value="wholesale">Wholesale order</option>
+                <option value="custom">Custom / branded candles</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="quantity">Quantity</label>
+              <input type="text" id="quantity" name="quantity" placeholder="e.g. 50">
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project, preferred scents, timing..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Request</button>
+          <p class="form-note">Or message us directly on <a href="https://www.instagram.com/violeta_for_decor/">Instagram</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" onclick="showPage('home')">
+            <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2c1.5 3.5 4 5.5 4 9a4 4 0 1 1-8 0c0-3.5 2.5-5.5 4-9z"/><rect x="9" y="16" width="6" height="6" rx="1.5"/></svg></span>
+            <span class="logo-text">Violeta<small>For Decor</small></span>
+          </a>
+          <p>Handcrafted artisan candles for homes, offices, restaurants, and events. Made with care, one pour at a time.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <a onclick="showPage('shop')">Signature Candles</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('contact')">Contact</a>
+            <a href="https://www.instagram.com/violeta_for_decor/">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Violeta for Decor. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/violeta_for_decor/" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zM12 6.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('quoteForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const type = this.type.options[this.type.selectedIndex].text;
+      const quantity = this.quantity.value.trim();
+      const message = this.message.value.trim();
+      if (!name || !email || !message) return alert('Please fill in all required fields.');
+      const to = 'your-email@gmail.com'; 
+      const subject = encodeURIComponent('Quote request — ' + name + ' (' + type + ')');
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterested in: ' + type + '\nQuantity: ' + quantity + '\n\nMessage:\n' + message);
+      window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+    });
+  </script>
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(page => {
+        page.classList.remove('active');
+      });
+      const activePage = document.getElementById('page-' + pageId);
+      if(activePage) {
+        activePage.classList.add('active');
+      }
+      document.querySelectorAll('.nav-link').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const activeNav = document.getElementById('nav-' + pageId);
+      if (activeNav) {
+        activeNav.classList.add('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      showPage('home');
+    });
+  </script>
+  <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="YOUR_SNIPCART_API_KEY"></div>
+</body>
+</html>
