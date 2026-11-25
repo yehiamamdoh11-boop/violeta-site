@@ -4,14 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Violeta for Decor — Handcrafted Candles</title>
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Snipcart Shopping Cart CSS -->
-  <link rel="preconnect" href="https://app.snipcart.com">
-  <link rel="preconnect" href="https://cdn.snipcart.com">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
   <style>
     :root {
       --violet: #7c3aed;
@@ -202,8 +197,8 @@
         <button class="nav-link" id="nav-home" onclick="showPage('home')">Home</button>
         <button class="nav-link" id="nav-shop" onclick="showPage('shop')">Shop</button>
         <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
-        <button class="nav-cta snipcart-checkout">
-          Cart (<span class="snipcart-items-count">0</span>)
+        <button class="nav-cta" onclick="showPage('shop')">
+          Shop Now
         </button>
       </nav>
     </div>
@@ -283,14 +278,9 @@
               <p class="product-desc">Rich, woody, and warm. A luxurious scent that brings depth and elegance to any room.</p>
               <div class="product-foot">
                 <div class="price">$32<small>200g · 40h burn</small></div>
-                <button class="btn-order snipcart-add-item"
-                  data-item-id="oud-candle"
-                  data-item-price="32.00"
-                  data-item-url="/"
-                  data-item-description="Rich, woody, and warm handmade soy candle."
-                  data-item-image="https://i.postimg.cc/Y2nV4ncG/image-321.jpg"
-                  data-item-name="OUD Candle">
-                  Add to Cart
+                <button class="btn-order" onclick="orderViaWhatsApp('OUD Candle', 32)">
+                  Order
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
               </div>
             </div>
@@ -305,14 +295,9 @@
               <p class="product-desc">Calming lavender with a hint of vanilla. Perfect for bedrooms and relaxation spaces.</p>
               <div class="product-foot">
                 <div class="price">$28<small>200g · 40h burn</small></div>
-                <button class="btn-order snipcart-add-item"
-                  data-item-id="lavender-candle"
-                  data-item-price="28.00"
-                  data-item-url="/"
-                  data-item-description="Calming lavender handmade soy candle."
-                  data-item-image="https://i.postimg.cc/YSRR50M7/image-317.jpg"
-                  data-item-name="LAVENDER Candle">
-                  Add to Cart
+                <button class="btn-order" onclick="orderViaWhatsApp('Lavender Candle', 28)">
+                  Order
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
               </div>
             </div>
@@ -327,14 +312,9 @@
               <p class="product-desc">Floral and delicate. Beautiful for weddings, gifts, and special occasions.</p>
               <div class="product-foot">
                 <div class="price">$30<small>200g · 40h burn</small></div>
-                <button class="btn-order snipcart-add-item"
-                  data-item-id="jasmine-candle"
-                  data-item-price="30.00"
-                  data-item-url="/"
-                  data-item-description="Floral and delicate handmade soy candle."
-                  data-item-image="https://i.postimg.cc/mgQ8SVnk/image-278.jpg"
-                  data-item-name="JASMINE Candle">
-                  Add to Cart
+                <button class="btn-order" onclick="orderViaWhatsApp('Jasmine Candle', 30)">
+                  Order
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
               </div>
             </div>
@@ -444,6 +424,16 @@
     </div>
   </footer>
   <script>
+    // --- CHANGE THIS TO YOUR REAL WHATSAPP NUMBER ---
+    // Include the country code, no plus signs, no spaces. Example for Egypt: 201234567890
+    const myPhoneNumber = "1234567890"; 
+
+    function orderViaWhatsApp(productName, price) {
+      const message = `Hello Violeta for Decor! I would like to order:\n\n🕯️ *${productName}* ($${price})\n\nPlease let me know how I can pay with cash and arrange delivery.`;
+      const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
     document.getElementById('quoteForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const name = this.name.value.trim();
@@ -480,7 +470,5 @@
       showPage('home');
     });
   </script>
-  <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="YOUR_SNIPCART_API_KEY"></div>
 </body>
 </html>
