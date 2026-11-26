@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Violeta for Decor — Handcrafted Candles</title>
-    <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/kgPZZSwX/518487079-17953151486987420-3960081446019770924-n.jpg">
-  <link rel="apple-touch-icon" href="https://postimg.cc">
+  <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/kgPZZSwX/518487079-17953151486987420-3960081446019770924-n.jpg">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/kgPZZSwX/518487079-17953151486987420-3960081446019770924-n.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,21 +57,9 @@
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); cursor: pointer; }
     
     .logo-mark {
-      width: 40px; 
-      height: 40px;
-      border-radius: 50%; 
-      overflow: hidden;
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      background: #fff;
-      flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0;
     }
-    .logo-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; 
-    }
+    .logo-mark img { width: 100%; height: 100%; object-fit: cover; }
     
     .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; line-height: 1.1; }
     .logo-text small { display: block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); margin-top: 2px; }
@@ -83,33 +71,9 @@
     .nav-link.active { color: var(--violet); font-weight: 600; }
     
     /* Cart Button */
-    .cart-btn { 
-      background: var(--violet-soft); 
-      color: var(--violet-dark); 
-      padding: 10px 20px; 
-      border-radius: 100px; 
-      font-weight: 600; 
-      border: none; 
-      cursor: pointer; 
-      font-family: inherit; 
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.2s;
-    }
+    .cart-btn { background: var(--violet-soft); color: var(--violet-dark); padding: 10px 20px; border-radius: 100px; font-weight: 600; border: none; cursor: pointer; font-family: inherit; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: background 0.2s; }
     .cart-btn:hover { background: var(--violet); color: #fff; }
-    .cart-count {
-      background: var(--violet);
-      color: #fff;
-      font-size: 12px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .cart-count { background: var(--violet); color: #fff; font-size: 12px; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .cart-btn:hover .cart-count { background: #fff; color: var(--violet); }
 
     /* ---- Page Sections ---- */
@@ -156,6 +120,24 @@
     .serve-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.8; fill: none; }
     .serve-card h3 { font-size: 17px; margin-bottom: 6px; }
     .serve-card p { color: var(--muted); font-size: 13.5px; }
+
+    /* ---- Reviews Section ---- */
+    .reviews { background: #fff; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 40px; }
+    .review-card { background: var(--violet-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: transform 0.2s, box-shadow 0.2s; }
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -20px rgba(91, 33, 182, 0.18); }
+    .stars { display: flex; gap: 4px; color: #fbbf24; }
+    .stars svg { width: 18px; height: 18px; fill: currentColor; }
+    .review-text { font-size: 15px; color: var(--text); line-height: 1.6; font-style: italic; flex: 1; }
+    .review-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--border); padding-top: 16px; }
+    .review-avatar { width: 40px; height: 40px; background: var(--violet); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+    .review-name { font-weight: 600; font-size: 14.5px; }
+    .review-loc { font-size: 12.5px; color: var(--muted); }
+    
+    /* Review CTA Button */
+    .review-cta-container { text-align: center; }
+    .btn-review-cta { background: #fff; color: var(--violet); border: 2px solid var(--violet); padding: 12px 28px; border-radius: 100px; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .btn-review-cta:hover { background: var(--violet); color: #fff; }
     
     /* ---- Products ---- */
     .products { background: var(--violet-soft); padding-top: 64px; }
@@ -224,21 +206,16 @@
     .footer-social a:hover { background: var(--violet); color: #fff; }
     .footer-social svg { width: 17px; height: 17px; fill: currentColor; }
 
+    /* ---- Modals ---- */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+    .modal.open { display: flex; }
+    .modal-content { background: #fff; border-radius: var(--radius); padding: 36px; width: 100%; max-width: 480px; position: relative; animation: fadeIn 0.3s ease; }
+    .close-modal { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--muted); }
+    .modal-content h3 { font-size: 24px; margin-bottom: 8px; }
+    .modal-content > p { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+
     /* ---- Cart Drawer ---- */
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: -400px;
-      width: 100%;
-      max-width: 400px;
-      height: 100vh;
-      background: #fff;
-      box-shadow: -5px 0 30px rgba(0,0,0,0.1);
-      z-index: 1000;
-      transition: right 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
+    .cart-drawer { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: #fff; box-shadow: -5px 0 30px rgba(0,0,0,0.1); z-index: 1000; transition: right 0.3s ease; display: flex; flex-direction: column; }
     .cart-drawer.open { right: 0; }
     .cart-header { padding: 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .cart-header h3 { font-size: 20px; }
@@ -249,12 +226,10 @@
     .cart-item-info { flex: 1; }
     .cart-item-info h4 { font-size: 15px; margin-bottom: 4px; }
     .cart-item-info .item-price { color: var(--violet-dark); font-weight: 700; font-size: 14px; }
-    
     .qty-controls { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
     .qty-btn { width: 24px; height: 24px; border-radius: 4px; border: 1px solid var(--border); background: #fff; color: var(--text); font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .qty-btn:hover { background: var(--violet-soft); border-color: var(--violet); color: var(--violet); }
     .qty-display { font-size: 14px; font-weight: 600; min-width: 20px; text-align: center; }
-    
     .remove-item { background: none; border: none; color: #ef4444; font-size: 13px; cursor: pointer; text-decoration: underline; margin-top: 4px; padding: 0; }
     .cart-footer { padding: 24px; border-top: 1px solid var(--border); background: var(--violet-soft); }
     .cart-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 18px; margin-bottom: 16px; }
@@ -271,6 +246,7 @@
       .hero-visual { max-width: 400px; margin: 0 auto; }
       .product-grid { grid-template-columns: repeat(2, 1fr); }
       .serve-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     }
     @media (max-width: 680px) {
@@ -336,6 +312,44 @@
   </div>
   <!-- END CART DRAWER -->
 
+  <!-- REVIEW MODAL -->
+  <div class="modal" id="reviewModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="toggleReviewModal()">✕</button>
+      <h3>Leave a Review</h3>
+      <p>We'd love to hear about your experience with our candles!</p>
+      <form id="reviewForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="revName">Your Name</label>
+            <input type="text" id="revName" name="revName" placeholder="Enter your full name" required>
+          </div>
+          <div class="field">
+            <label for="revLoc">Your City</label>
+            <input type="text" id="revLoc" name="revLoc" placeholder="Enter your city (optional)">
+          </div>
+        </div>
+        <div class="field">
+          <label for="revStars">Rating</label>
+          <select id="revStars" name="revStars">
+            <option value="5">⭐⭐⭐⭐⭐ (5 Stars - Excellent)</option>
+            <option value="4">⭐⭐⭐⭐ (4 Stars - Good)</option>
+            <option value="3">⭐⭐⭐ (3 Stars - Okay)</option>
+            <option value="2">⭐⭐ (2 Stars - Poor)</option>
+            <option value="1">⭐ (1 Star - Bad)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="revText">Your Review</label>
+          <textarea id="revText" name="revText" placeholder="Tell us what you loved about the candles..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" style="background: var(--violet);">
+          Submit Review
+        </button>
+      </form>
+    </div>
+  </div>
+
   <main id="page-home" class="page-section active">
     <section class="hero">
       <div class="container hero-inner">
@@ -391,6 +405,83 @@
         </div>
       </div>
     </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Customer Love</span>
+          <h2>What our customers say</h2>
+          <p>Don't just take our word for it — here's what people are saying about our candles.</p>
+        </div>
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <div class="review-card">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"The Oud candle smells absolutely divine. It fills my whole living room with a cozy, luxurious scent. I've already ordered two more!"</p>
+            <div class="review-author">
+              <div class="review-avatar">S</div>
+              <div>
+                <div class="review-name">Sara M.</div>
+                <div class="review-loc">Cairo</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"I bought the Lavender candle as a gift for my mom, and she loved it. The packaging is beautiful and the scent is so relaxing."</p>
+            <div class="review-author">
+              <div class="review-avatar">A</div>
+              <div>
+                <div class="review-name">Ahmed R.</div>
+                <div class="review-loc">Alexandria</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"Ordered the Jasmine candle for my restaurant. The scent is elegant and not overpowering. Great quality and fast delivery!"</p>
+            <div class="review-author">
+              <div class="review-avatar">M</div>
+              <div>
+                <div class="review-name">Mona K.</div>
+                <div class="review-loc">Cairo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leave a Review Button -->
+        <div class="review-cta-container">
+          <button class="btn-review-cta" onclick="toggleReviewModal()">Write a Review</button>
+        </div>
+
+      </div>
+    </section>
+    <!-- END REVIEWS SECTION -->
+
   </main>
   <main id="page-shop" class="page-section">
     <section class="products">
@@ -673,6 +764,34 @@
       
       const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(text)}`;
       window.open(whatsappUrl, '_blank');
+    });
+
+    // --- REVIEW MODAL LOGIC ---
+    function toggleReviewModal() {
+      document.getElementById('reviewModal').classList.toggle('open');
+    }
+
+    document.getElementById('reviewForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = this.revName.value.trim();
+      const loc = this.revLoc.value.trim();
+      const stars = this.revStars.value;
+      const text = this.revText.value.trim();
+      
+      if (!name || !text) return alert('Please fill in your name and review.');
+      
+      let message = `Hello Violeta for Decor! I would like to leave a review:\n\n`;
+      message += `⭐ *Rating:* ${stars} Stars\n`;
+      message += `👤 *Name:* ${name}\n`;
+      if (loc) message += `📍 *City:* ${loc}\n`;
+      message += `\n💬 *Review:*\n"${text}"`;
+      
+      const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      
+      // Reset form and close modal
+      this.reset();
+      toggleReviewModal();
     });
 
     // Initial setup
