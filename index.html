@@ -491,23 +491,6 @@
               <input type="text" id="phone" name="phone" placeholder="e.g. 01012345678" required>
             </div>
           </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="type">I'm interested in</label>
-              <select id="type" name="type">
-                <option value="home">Home candles</option>
-                <option value="office">Office candles</option>
-                <option value="restaurant">Restaurant candles</option>
-                <option value="event">Event candles</option>
-                <option value="wholesale">Wholesale order</option>
-                <option value="custom">Custom / branded candles</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="quantity">Quantity</label>
-              <input type="text" id="quantity" name="quantity" placeholder="e.g. 50">
-            </div>
-          </div>
           <div class="field">
             <label for="message">Your message</label>
             <textarea id="message" name="message" placeholder="Tell us about your project, preferred scents, timing..." required></textarea>
@@ -677,17 +660,13 @@
       e.preventDefault();
       const name = this.name.value.trim();
       const phone = this.phone.value.trim();
-      const type = this.type.options[this.type.selectedIndex].text;
-      const quantity = this.quantity.value.trim();
       const message = this.message.value.trim();
       
       if (!name || !phone || !message) return alert('Please fill in all required fields.');
       
       let text = `Hello Violeta for Decor! I have a request:\n\n`;
       text += `👤 *Name:* ${name}\n`;
-      text += `📞 *Phone:* ${phone}\n`;
-      text += `📦 *Interested in:* ${type}\n`;
-      text += `🔢 *Quantity:* ${quantity || 'Not specified'}\n\n`;
+      text += `📞 *Phone:* ${phone}\n\n`;
       text += `💬 *Message:*\n${message}`;
       
       const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(text)}`;
