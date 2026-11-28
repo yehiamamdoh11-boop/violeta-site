@@ -414,7 +414,9 @@
           <h2>What our customers say</h2>
           <p>Don't just take our word for it — here's what people are saying about our candles.</p>
         </div>
-        <div class="reviews-grid">
+        
+        <!-- Review Cards Container -->
+        <div class="reviews-grid" id="reviewsGrid">
           <!-- Review 1 -->
           <div class="review-card">
             <div class="stars">
@@ -771,33 +773,69 @@
       document.getElementById('reviewModal').classList.toggle('open');
     }
 
+    // Load saved reviews when page loads
+    function loadReviews() {
+      const savedReviews = JSON.parse(localStorage.getItem('violetaReviews')) || [];
+      const reviewsGrid = document.getElementById('reviewsGrid');
+      
+      savedReviews.forEach(review => {
+        // Generate star SVGs based on rating
+        let starsHTML = '';
+        for(let i=0; i<5; i++) {
+          if(i < review.stars) {
+            starsHTML += `<svg viewBox="0 0 24 24" style="fill: #fbbf24;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+          } else {
+            starsHTML += `<svg viewBox="0 0 24 24" style="fill: #e5e7eb;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+          }
+        }
+
+        const reviewHTML = `
+          <div class="review-card" style="animation: fadeIn 0.4s ease;">
+            <div class="stars">${starsHTML}</div>
+            <p class="review-text">"${review.text}"</p>
+            <div class="review-author">
+              <div class="review-avatar">${review.name.charAt(0).toUpperCase()}</div>
+              <div>
+                <div class="review-name">${review.name}</div>
+                <div class="review-loc">${review.loc || 'Customer'}</div>
+              </div>
+            </div>
+          </div>
+        `;
+        reviewsGrid.insertAdjacentHTML('beforeend', reviewHTML);
+      });
+    }
+
+    // Submit Review Form
     document.getElementById('reviewForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const name = this.revName.value.trim();
       const loc = this.revLoc.value.trim();
-      const stars = this.revStars.value;
+      const stars = parseInt(this.revStars.value);
       const text = this.revText.value.trim();
       
       if (!name || !text) return alert('Please fill in your name and review.');
       
-      let message = `Hello Violeta for Decor! I would like to leave a review:\n\n`;
-      message += `⭐ *Rating:* ${stars} Stars\n`;
-      message += `👤 *Name:* ${name}\n`;
-      if (loc) message += `📍 *City:* ${loc}\n`;
-      message += `\n💬 *Review:*\n"${text}"`;
+      // Get existing reviews or empty array
+      let reviews = JSON.parse(localStorage.getItem('violetaReviews')) || [];
       
-      const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
+      // Add new review
+      reviews.push({ name, loc, stars, text });
       
-      // Reset form and close modal
+      // Save back to localStorage
+      localStorage.setItem('violetaReviews', JSON.stringify(reviews));
+      
+      // Reset form, close modal, and reload the page to show the new review
       this.reset();
       toggleReviewModal();
+      window.location.reload(); 
     });
 
     // Initial setup
     document.addEventListener('DOMContentLoaded', () => {
       showPage('home');
       updateCartUI();
+      loadReviews();
     });
   </script>
 </body>
